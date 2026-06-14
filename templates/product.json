@@ -1,0 +1,585 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "container": "container",
+        "text_alignment": "center",
+        "hide_current": false,
+        "hide_on_mb": false,
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_Xddn9p": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_saving": false,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "size_title": "Size"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "addons": {
+          "type": "addons",
+          "settings": {
+            "show_atcp": true,
+            "show_ask_a_question": true,
+            "show_social": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "judge_me_reviews_preview_badge_Xddn9p",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "addons"
+      ],
+      "settings": {
+        "container": "container",
+        "layout": "layout-6",
+        "show_atwl": true,
+        "enable_history_state": true,
+        "enable_variant_group_images": true,
+        "show_featured_media": true,
+        "show_zoom_button": true,
+        "enable_video_autoplay": true,
+        "show_nav_media_mobile": true,
+        "show_pagination_mobile": true,
+        "use_sticky_atc": true,
+        "use_sticky_atc_on_mobile": true,
+        "enable_dynamic_checkout": true,
+        "sticky_atc_wishtlist": true,
+        "sticky_atc_compare": true
+      }
+    },
+    "product-details-tabs": {
+      "type": "product-details-tabs",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+            "header": "Product description"
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "header": "Shipping & Return",
+            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content_page": ""
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab"
+      ],
+      "settings": {
+        "container": "container",
+        "bg_color": "",
+        "default_open": true,
+        "animations": "inherit"
+      }
+    },
+    "custom_content_ddQApG": {
+      "type": "custom-content",
+      "blocks": {
+        "countdown_YMM3h3": {
+          "type": "countdown",
+          "settings": {
+            "width": "100%",
+            "alignment": "center",
+            "align": "center",
+            "time": "2026-05-26 23:00:00",
+            "heading": "Flash Sale End After",
+            "heading_size": "h3",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/flash-sels",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "countdown_YMM3h3"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "background_color": "#fff7f7",
+        "gap": 30,
+        "use_scroll_mobile": false,
+        "gap_mobile": 16,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
+    },
+    "icon_box_whEtKE": {
+      "type": "icon-box",
+      "blocks": {
+        "iconbox_hQqReW": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/fast-delivery.png",
+            "image_by_url": "",
+            "title": "Fast Shipping",
+            "description": "<p><br/>Quick and reliable delivery to your doorstep with real-time order tracking<br/><br/></p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_z3fKi6": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/secure-payment.png",
+            "image_by_url": "",
+            "title": "Secure Checkout",
+            "description": "<p><br/>Your payments are protected with trusted and encrypted checkout systems.<br/><br/></p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_dBRexK": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/guaranteed.png",
+            "image_by_url": "",
+            "title": "Quality Guaranteed",
+            "description": "<p><br/>Carefully selected products designed for durability, comfort, and everyday use.<br/><br/></p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_wwhJMV": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/price-cut.png",
+            "image_by_url": "",
+            "title": "Affordable Prices",
+            "description": "<p><br/>Trendy and practical products at prices that fit your budget.<br/><br/></p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_BJMR7x": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/24-hours-support.png",
+            "image_by_url": "",
+            "title": "24/7 Support",
+            "description": "<p><br/>Friendly customer assistance whenever you need help with your orders.<br/><br/></p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "iconbox_hQqReW",
+        "iconbox_z3fKi6",
+        "iconbox_dBRexK",
+        "iconbox_wwhJMV",
+        "iconbox_BJMR7x"
+      ],
+      "name": "Featured promotion",
+      "settings": {
+        "heading": "Our Promises",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "background_color": "rgba(0,0,0,0)",
+        "item_per_row": 5,
+        "item_gap": 30,
+        "item_gap_mobile": 10,
+        "card_style": "vertical",
+        "image_max_width": "70px",
+        "content_alignment": "center",
+        "hover_effect": "scaling-up",
+        "enable_slider": true,
+        "show_pagination": true,
+        "show_navigation": false,
+        "use_scroll_mobile": true,
+        "use_grid_column_mb": false,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "container": "container",
+        "heading": "You Might Also Like",
+        "heading_size": "h3",
+        "text_align": "left",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": 30,
+        "enable_slider": true,
+        "use_scroll_mobile": true,
+        "animations": "inherit"
+      }
+    },
+    "in_media_GhaNRc": {
+      "type": "in-media",
+      "blocks": {
+        "testimonial_gtbB4x": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Elena_Popescu.png",
+            "name": "Elena Popescu",
+            "role": "Skincare Specialist",
+            "review_date": "November 2025",
+            "product_tag": "",
+            "review_source": "instagram",
+            "custom_source": "",
+            "show_verified": true,
+            "show_stars": true,
+            "star_count": 5,
+            "quote": "This RGB keyboard is a vibrant masterpiece. Its tactile switches feel crisp, while the customizable glow adds flair to every setup. Durable, sleek, and brilliant."
+          }
+        },
+        "testimonial_Uc4WUU": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Maria_Ionescu.png",
+            "name": "Maria Ionescu",
+            "role": "Verified Customer",
+            "review_date": "December 2025",
+            "product_tag": "",
+            "review_source": "google",
+            "custom_source": "",
+            "show_verified": true,
+            "show_stars": true,
+            "star_count": 3,
+            "quote": "The Stanley Cross Bottle is a stylish, wearable marvel. Its leakproof design and rugged build ensure hydration on the go. Sleek, functional, and truly essential."
+          }
+        },
+        "testimonial_whzDEj": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Ioana_Mihai.png",
+            "name": "Ioana Mihai",
+            "role": "Beauty Blogger",
+            "review_date": "January 2026",
+            "product_tag": "",
+            "review_source": "tiktok",
+            "custom_source": "",
+            "show_verified": false,
+            "show_stars": true,
+            "star_count": 5,
+            "quote": "This LED study lamp is a minimalist gem. Its adjustable brightness and flicker-free light reduce eye strain perfectly. Sleek, efficient, and ideal for any desk."
+          }
+        },
+        "testimonial_gFkkRU": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Andrei_Constantin.png",
+            "name": "Andrei Constantin",
+            "role": "Verified Customer",
+            "review_date": "February 2026",
+            "product_tag": "",
+            "review_source": "facebook",
+            "custom_source": "",
+            "show_verified": true,
+            "show_stars": true,
+            "star_count": 5,
+            "quote": "This RGB gaming mouse is a fast, ergonomic wonder. Its precise sensor and vibrant, shifting lights enhance every session. Highly responsive, sleek, and stunning."
+          }
+        },
+        "testimonial_FjB3bz": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Ethan_Carter.png",
+            "name": "Ethan Carter",
+            "role": "Verified Customer",
+            "review_date": "January 2026",
+            "product_tag": "",
+            "review_source": "whatsapp",
+            "custom_source": "",
+            "show_verified": true,
+            "show_stars": true,
+            "star_count": 5,
+            "quote": "Exquisite blue and gold artistry defines this pen set. The engraved details offer a regal touch, while the smooth ink flow ensures a premium writing experience."
+          }
+        },
+        "testimonial_jiFxbW": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Sophia_Mitchell.png",
+            "name": "Sophia Mitchell",
+            "role": "Verified Customer",
+            "review_date": "March 2026",
+            "product_tag": "",
+            "review_source": "youtube",
+            "custom_source": "",
+            "show_verified": true,
+            "show_stars": true,
+            "star_count": 5,
+            "quote": "The store offers premium quality and a refined aesthetic. Fast shipping and clear communication make shopping seamless. Every product feels luxury and authentic."
+          }
+        },
+        "stat_hYaPwK": {
+          "type": "stat",
+          "settings": {
+            "number": "10,000+",
+            "label": "Happy customers worldwide"
+          }
+        },
+        "stat_k7VCEC": {
+          "type": "stat",
+          "settings": {
+            "number": "98%",
+            "label": "Would recommend to a friend"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_gtbB4x",
+        "testimonial_Uc4WUU",
+        "testimonial_whzDEj",
+        "testimonial_gFkkRU",
+        "testimonial_FjB3bz",
+        "testimonial_jiFxbW",
+        "stat_hYaPwK",
+        "stat_k7VCEC"
+      ],
+      "name": "In Media Testimonials",
+      "settings": {
+        "bg_color": "#ffffff",
+        "accent_color": "#dab53f",
+        "heading_color": "#000000",
+        "label_color": "#dcb772",
+        "body_color": "#000000",
+        "muted_color": "#000000",
+        "card_bg": "#ffffff",
+        "card_border_color": "#1e1e1e",
+        "quote_icon_color": "#6b4604",
+        "avatar_fallback_bg": "#ffffff",
+        "eyebrow": "Testimonial",
+        "heading": "What our customers are saying",
+        "description": "Our products have delivered consistent and measurable improvements for professionals across various industries.",
+        "eyebrow_size": 10,
+        "heading_size": 44,
+        "heading_size_tablet": 34,
+        "heading_size_mobile": 28,
+        "desc_size": 14,
+        "name_size": 14,
+        "role_size": 12,
+        "quote_size": 14,
+        "quote_size_mobile": 13,
+        "stat_num_size": 36,
+        "stat_label_size": 13,
+        "card_shadow_enabled": true,
+        "card_shadow_blur": 24,
+        "card_shadow_spread": 0,
+        "card_shadow_y": 8,
+        "card_shadow_opacity": 12,
+        "card_columns": 2,
+        "tablet_card_columns": 2,
+        "mobile_card_columns": 1,
+        "card_padding": 24,
+        "card_gap": 16,
+        "card_radius": 10,
+        "avatar_size": 40,
+        "initials_size": 15,
+        "show_quote_icon": true,
+        "quote_icon_size": 48,
+        "star_size": 14,
+        "initial_visible_cards": 0,
+        "load_more_label": "Show more reviews",
+        "load_more_color": "#2d7a4f",
+        "max_width": 1280,
+        "left_col_width": 30,
+        "col_gap": 64,
+        "sticky_top": 40,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_left": 40,
+        "padding_right": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "breakpoint_tablet": 1020,
+        "breakpoint_mobile": 640,
+        "tablet_pad_v": 60,
+        "tablet_pad_h": 24,
+        "mobile_pad_v": 40,
+        "mobile_pad_h": 16,
+        "mobile_col_gap": 36
+      }
+    },
+    "1778048757a0538475": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_all_reviews_text_3ggNnf": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_text/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "judge_me_reviews_review_widget_jGRPnU": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_all_reviews_text_3ggNnf",
+        "judge_me_reviews_review_widget_jGRPnU"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
+    },
+    "177804875990e59634": {
+      "type": "apps",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
+    },
+    "recent-viewed-products": {
+      "type": "recent-viewed-products",
+      "settings": {
+        "container": "container",
+        "heading": "Recently Viewed Products",
+        "heading_size": "h3",
+        "text_align": "left",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": 30,
+        "enable_slider": true
+      }
+    },
+    "favorite_product_slider_8bqUtP": {
+      "type": "favorite-product-slider",
+      "name": "Favorite product slider",
+      "settings": {
+        "heading": "You May Also Like",
+        "collection": "all-products",
+        "products_to_show": 20,
+        "card_width": 240,
+        "image_height": 220,
+        "card_gap": 16,
+        "card_radius": 10,
+        "title_size": 14,
+        "price_size": 15,
+        "heading_size": 28,
+        "bg_color": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "price_color": "#e85d04",
+        "scroll_speed": 3,
+        "section_padding": 40,
+        "show_dots": true
+      }
+    },
+    "product_recommendations_nybAYg": {
+      "type": "product-recommendations",
+      "name": "Product recommendations",
+      "settings": {
+        "container": "container",
+        "heading": "You Might Also Like",
+        "heading_size": "h3",
+        "text_align": "left",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": 30,
+        "enable_slider": true,
+        "use_scroll_mobile": true,
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "product-details-tabs",
+    "custom_content_ddQApG",
+    "icon_box_whEtKE",
+    "product-recommendations",
+    "in_media_GhaNRc",
+    "1778048757a0538475",
+    "177804875990e59634",
+    "recent-viewed-products",
+    "favorite_product_slider_8bqUtP",
+    "product_recommendations_nybAYg"
+  ]
+}
