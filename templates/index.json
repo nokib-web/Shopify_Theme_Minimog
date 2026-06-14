@@ -1,0 +1,1256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "c72959ad-9620-4e94-ae33-1bde908e9701": {
+      "type": "custom-code",
+      "settings": {
+        "custom_css": ":root {\n--spacing-sections-desktop: 120px;\n  --spacing-sections-tablet: 60px;\n  --spacing-sections-mobile: 48px;\n}\n.sf-home__collection-list .m-collection-card__link {\n  font-size: 24px;\n  line-height: 1.4;\n  font-weight: 400;\n}\n\n.sf-icon-box--large .m-icon-box__heading {\n  font-weight: 400;\n}\n.sf-icon-box--large .m-icon-box .m-button {\n  margin-top: 16px;\n}\n\n.m-richtext__subtitle,\n.m-lookbook__subheading {\n  font-weight: 500;\n}\n.sf-custom--collection-banner .container-full {\n  padding-left: 0;\n  padding-right: 0;\n}\n.sf-custom--collection-banner .m-image-card--button-fixed .m-button--fixed {\n  border-color: #e2e2e2;\n  padding-bottom: 20px;\n}\n.sf-custom--collection-banner .m-richtext__title {\n  line-height: 1.3;\n}\n\n.m-lookbook__header .m-lookbook__heading {\n  font-size: 29px;\n}\n@media (min-width: 768px) {\n  .sf-custom--collection-banner .m-image-card--button-fixed .m-button--fixed {\n    padding-bottom: 40px;\n    padding-top: 24px;\n  }\n  .sf-icon-box--large .m-icon-box__heading {\n    font-size: 32px;\n  }\n  .sf-icon-box--large .m-icon-box .m-button {\n    margin-top: 24px;\n  }\n}\n@media (min-width: 1024px) {\n  .m-footer--block-newsletter .m-footer--block-title {\n    font-size: 28px;\n    font-weight: 400;\n  }\n  .sf-custom--collection-banner .m-image-card__content {\n    padding-top: 70px;\n  }\n}\n@media (min-width: 1280px) {\n  .m-lookbook__header .m-lookbook__heading {\n    font-size: 42px;\n    line-height: 52px;\n  }\n  .sf-custom--collection-banner .m-richtext__subtitle,\n  .m-lookbook__header .m-lookbook__subheading {\n    font-size: 20px;\n    margin-bottom: 24px;\n  }\n}\n@media (min-width: 1536px) {\n  .sf-home__slideshow .m-slide__title {\n    font-size: 70px;\n    line-height: 80px;\n    margin-bottom: 40px;\n  }\n  .sf-custom--collection-banner .m-image-card__content {\n    padding-top: 110px;\n  }\n}\n\n@media (max-width: 767px) {\n  .sf-custom--collection-banner .m-image-card__content {\n    padding-bottom: 25px;\n    padding-top: 30px;\n  }\n  .sf-custom--collection-banner .m-image-card--button-fixed .m-button--fixed {\n    justify-content: center;\n    gap: 10px;\n    border: 0;\n    padding-bottom: 25px;\n  }\n  .sf-home__slideshow.m-slider--content-stack .m-slide__wrapper {\n    padding-top: 32px;\n  }\n  .sf-home__collection-list.m-collection-list .m-slider-controls,\n  .sf-home__collection-list .m-section__heading {\n    text-align: center;\n  }\n  body .m-lookbook__subheading {\n    margin-bottom: 12px;\n  }\n}"
+      }
+    },
+    "1621243260e1af0c20": {
+      "type": "slider",
+      "blocks": {
+        "1621243260e1af0c20-0": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/banner_96ce66af-5514-44dd-a42a-77a32752856c.png",
+            "mb_background": "shopify://shop_images/reframe_banner-all-mobile.webp",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "New Arrivals",
+            "title": "Stay Ready.<br>\nStay Organized.",
+            "description": "<p>Everyday essentials built for comfort, convenience, and productivity.</p>",
+            "image_link": "shopify://collections/all-products",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "show_footer": true,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "video_slide_n7yTpx": {
+          "type": "video_slide",
+          "settings": {
+            "video": "https://cdn.shopify.com/videos/c/o/v/46d75036c1254308812a2a5d0beb982c.mp4",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "text_size": "medium",
+            "text_color": "white",
+            "subheading": "",
+            "title": "Style in Motion",
+            "description": "<p>Explore our latest collection in action.</p><p>Designed for your everyday lifestyle.</p>",
+            "image_link": "",
+            "button_text": "Shop now",
+            "button_link": "shopify://collections/all",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "1621243260e1af0c20-1": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/hero-banner-thumb.png",
+            "mb_background": "shopify://shop_images/reframe_hero-banner-thumb.webp",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "New Arrivals",
+            "title": "Carry Smarter. <br>\nLive Lighter.",
+            "description": "<p>Designed for modern lifestyles <br/>lightweight, secure, and built to move with you every day.</p>",
+            "image_link": "shopify://collections/summer-bag",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/summer-bag",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "show_footer": true,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "slider_item_YzFwFE": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/slide-10.webp",
+            "mb_background": "shopify://shop_images/reframe_banner-lady-mobile.webp",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "New Arrivals",
+            "title": "Stylish.<br>\nPractical.",
+            "description": "<p>A modern essential for organized, effortless style.</p>",
+            "image_link": "shopify://collections",
+            "button_text": "Shop now",
+            "button_link": "shopify://collections/all-products",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "1621243260e1af0c20-2": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/slider2-bg_2000x_f2baea80-eadd-44f0-98e0-e1c7e037f5d3.webp",
+            "mb_background": "shopify://shop_images/reframe_headphone-wired-red.webp",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "New Arrivals",
+            "title": "Pure Sound.<br>\nTotal Freedom.",
+            "description": "<p>Experience rich audio, all-day comfort, </p><p>and seamless performance wherever you go.</p>",
+            "image_link": "shopify://products/9d-surround-sound-wireless-bluetooth-headphones-over-ear-headsets-true-sports-earphones-support-tf-aux-music-player-with-hd-mic",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/best-seller",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "show_footer": true,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "slider_item_TyyEPd": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/extended_desktop-banner-mouse.webp",
+            "mb_background": "shopify://shop_images/reframe_banner-rgb-mouse.webp",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "New Arrivals",
+            "title": "Glow.<br>Click.<br>Win.",
+            "description": "<p>Vibrant RGB effects meet high-speed </p><p>precision for a next-level gaming experience.</p>",
+            "image_link": "shopify://collections/rgb-mouse",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/rgb-mouse",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "show_footer": true,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1621243260e1af0c20-0",
+        "video_slide_n7yTpx",
+        "1621243260e1af0c20-1",
+        "slider_item_YzFwFE",
+        "1621243260e1af0c20-2",
+        "slider_item_TyyEPd"
+      ],
+      "settings": {
+        "container": "w-full",
+        "slideshow_height": "fullscreen",
+        "show_overlay": false,
+        "dots_position": "right",
+        "dots_color": "dark",
+        "show_dots": true,
+        "show_arrows": false,
+        "autorotate": true,
+        "autorotate_speed": 4,
+        "use_content_above": false,
+        "custom_class": "sf-home__slideshow",
+        "animations": "inherit"
+      }
+    },
+    "scrolling_promotion_3tpT9a": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "image_DD8d88": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S34425ffad77644d1afae5261ae6a3718c.webp",
+            "image_height": 120,
+            "image_link": "shopify://products/750ml-large-capacity-thermos-stainless-steel-jar-lunch-box-food-soup-container-food-flask-free-with-spoon"
+          }
+        },
+        "image_gzzhbg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Web_PNG_Square-The_Legendary_Useful_Box_1.25QT_-_Rose_Quartz_-_Hero_Exploded_3fba531c-6ef8-4a76-83af-1b366292f8d2.webp",
+            "image_height": 120,
+            "image_link": "shopify://products/3pcs-deli-containers-with-lids-7-9-5-6-1-7-in-bacon-container-for-refrigerator-fridge-organizer-cheese-container-for"
+          }
+        },
+        "image_V6r9tr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/child_bag_800x800_da2a2b98-ff4e-4b14-9af1-e2dd32bd4247.png",
+            "image_height": 120,
+            "image_link": "shopify://products/3d-kawaii-pencil-case-eva-large-capacity-waterproof-light-pencil-box-for-student-school-supply-stationery-bag"
+          }
+        },
+        "image_f7rVaR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Web_PNG_Square-CrossBottle_RGB_FrontWStrap_04_800x800_dac8b600-8210-4ebd-99a5-6f5115b7d03f.png",
+            "image_height": 120,
+            "image_link": "shopify://products/2l-drink-bottle-for-sport-large-capacity-stainless-steel-sport-bottle-single-layer-water-cup-metal-flask-drinkware-camping-sport"
+          }
+        },
+        "image_GBcaEq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/LD-4.webp",
+            "image_height": 120,
+            "image_link": "shopify://products/double-sided-desk-pad-31-5x15-7-leather-eco-cork-waterproof-desk-blotter-for-office-home-large-mouse-pad"
+          }
+        },
+        "image_HErfGH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Web_PNG_Square-The_Stanley_Cross_Bottle_23OZ_-_Toast_VRT_-_Front.webp",
+            "image_height": 120,
+            "image_link": "shopify://products/2l-drink-bottle-for-sport-large-capacity-stainless-steel-sport-bottle-single-layer-water-cup-metal-flask-drinkware-camping-sport"
+          }
+        },
+        "image_Lc9ry4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Web_PNG_Square-TheComebackLunchBox5.3QT-RoseQuartzPinkDusk-FrontAlt.webp",
+            "image_height": 120,
+            "image_link": "shopify://products/portable-crossbody-bag-insulated-lunch-bag-for-outdoor-car-travel-camping-daily-commute-gift"
+          }
+        },
+        "image_FEEKqQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/desk-lamp-olive.png",
+            "image_height": 120,
+            "image_link": "shopify://products/18-5-cyan-brass-gold-adjustable-cantilever-led-task-lamp-with-usb-charging-port-vintage-farmhouse-desk-lamp-for-home-o"
+          }
+        }
+      },
+      "block_order": [
+        "image_DD8d88",
+        "image_gzzhbg",
+        "image_V6r9tr",
+        "image_f7rVaR",
+        "image_GBcaEq",
+        "image_HErfGH",
+        "image_Lc9ry4",
+        "image_FEEKqQ"
+      ],
+      "name": "Scrolling promotion",
+      "settings": {
+        "container": "w-full",
+        "direction": "left",
+        "speed": 30,
+        "item_gap": 50,
+        "item_gap_mobile": 30,
+        "text_color": "#222222",
+        "bg_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
+    "16225316461d1cff80": {
+      "type": "collection-list",
+      "blocks": {
+        "65e38235-f03b-43c9-8590-38c9c656e51c": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "best-seller",
+            "title": "Best Seller",
+            "item_image": "shopify://shop_images/Web_PNG_Square-CrossBottle_RGB_FrontWStrap_02.webp"
+          }
+        },
+        "694c01c9-a95f-4c09-9cf0-ec75f0131e98": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "new-arrivals",
+            "title": "New Arrival",
+            "item_image": "shopify://shop_images/desk-lamp-olive.png"
+          }
+        },
+        "16225316461d1cff80-1": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "summer-bag",
+            "title": "Summer Bags",
+            "item_image": "shopify://shop_images/Web_PNG_Square-TheVitalizeMacroMethodBackpack30.9QT-RoseQuartz-Front.png"
+          }
+        },
+        "6d4abb37-5aa2-4499-a2b0-5d85f0d36eec": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "shoes",
+            "title": "Stanley Cups",
+            "item_image": "shopify://shop_images/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_40OZ_-_Soft_Orchid_-_Front.png"
+          }
+        },
+        "12985deb-0775-45ce-80f6-6be7f3150a91": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "pencil-box",
+            "title": "",
+            "item_image": "shopify://shop_images/Web_PNG_Square-TheComebackLunchBox5.3QT-RoseQuartzPinkDusk-Front.webp"
+          }
+        },
+        "16225316461d1cff80-2": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "launch-box",
+            "title": "Featured",
+            "item_image": "shopify://shop_images/Web_PNG_Square-The_Legendary_Useful_Box_1.25QT_-_Rose_Quartz_-_Hero_Back_f7b7a86b-23c7-4145-a481-0da3764886a2.webp"
+          }
+        },
+        "07ebf095-1da2-4546-87f3-97e73a789e8d": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "water-bottle",
+            "title": "Back In Store",
+            "item_image": "shopify://shop_images/transparent-2.webp"
+          }
+        },
+        "7a571158-7686-4e66-a693-4716fc905604": {
+          "type": "collection_block",
+          "disabled": true,
+          "settings": {
+            "collection": "tops",
+            "title": "Tops"
+          }
+        }
+      },
+      "block_order": [
+        "65e38235-f03b-43c9-8590-38c9c656e51c",
+        "694c01c9-a95f-4c09-9cf0-ec75f0131e98",
+        "16225316461d1cff80-1",
+        "6d4abb37-5aa2-4499-a2b0-5d85f0d36eec",
+        "12985deb-0775-45ce-80f6-6be7f3150a91",
+        "16225316461d1cff80-2",
+        "07ebf095-1da2-4546-87f3-97e73a789e8d",
+        "7a571158-7686-4e66-a693-4716fc905604"
+      ],
+      "settings": {
+        "heading": "Shop by Categories",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "left",
+        "container": "container-fluid",
+        "background_color": "",
+        "layout": "grid",
+        "expanded": true,
+        "card_style": "standard",
+        "text_alignment": "center",
+        "hover_effect": "scaling-up",
+        "show_product_count": true,
+        "count_inline_title": true,
+        "image_rounded": false,
+        "items_per_row": 4,
+        "item_gap": 40,
+        "enable_slider": true,
+        "show_pagination": true,
+        "show_navigation": true,
+        "autorotate": false,
+        "autorotate_speed": 4,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "mobile_gap": 16,
+        "hidden_slide_control_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "sf-home__collection-list",
+        "animations": "fade-in-left"
+      }
+    },
+    "featured_collection_TPxdVh": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "Featured collection",
+      "settings": {
+        "heading": "New Arrivals",
+        "heading_size": "h3",
+        "subheading": "Featured Item",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "background_color": "rgba(0,0,0,0)",
+        "collection": "new-arrivals",
+        "enable_flashsale": false,
+        "show_countdown": false,
+        "product_to_show": 8,
+        "items_per_row": 4,
+        "item_gap": 30,
+        "pcard_layout": "5",
+        "pcard_image_ratio": "3/4",
+        "show_vendor": false,
+        "hide_title": false,
+        "enable_slider": false,
+        "show_pagination": false,
+        "show_navigation": false,
+        "button_type": "link",
+        "button_text": "Shop more",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "infinite_load": false,
+        "max_page_load": 3,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "item_gap_mobile": 16,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "featured_product_slider_WGk9TY": {
+      "type": "featured-product-slider",
+      "blocks": {
+        "product_f3K3jd": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "2026-active-noise-cancelling-headphones-70h-playtime-clear-calls-electronics-flash-sale-headset-hc905-bluetooth-5-3"
+          }
+        },
+        "product_FhXy7y": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "750ml-large-capacity-thermos-stainless-steel-jar-lunch-box-food-soup-container-food-flask-free-with-spoon"
+          }
+        },
+        "product_MaRyxb": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "computer-gaming-keyboard-light-backlit-rgb-mute-wired-keyboard-usb-office-home-russian-french-spanish-german-arabic-english"
+          }
+        },
+        "product_DKN7B3": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "jinhao-159-luxury-yellow-and-silver-clip-ballpoint-pen-with-velvet-bag-free-shipping-rollerball-pens"
+          }
+        },
+        "product_ByNd7Y": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "large-lap-desk-with-cushion-up-to-17-laptop-tray-wrist-rest-2-mouse-pads-portable-handle"
+          }
+        },
+        "product_kdFAdJ": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "owalaa-light-pink-floral-32oz-945ml-stainless-steel-insulated-water-bottle-with-straw-for-daily-sports-outdoor-perfect-gift"
+          }
+        },
+        "product_XLpd3Y": {
+          "type": "product",
+          "settings": {
+            "heading": "",
+            "description": "",
+            "product": "simple-long-arm-folding-metal-desk-lamp-hotel-engineering-office-desk-lamp-study-bedroom-bedside-reading-lamp"
+          }
+        }
+      },
+      "block_order": [
+        "product_f3K3jd",
+        "product_FhXy7y",
+        "product_MaRyxb",
+        "product_DKN7B3",
+        "product_ByNd7Y",
+        "product_kdFAdJ",
+        "product_XLpd3Y"
+      ],
+      "name": "Featured products slider",
+      "settings": {
+        "heading": "Premium Quality products",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "rgba(0,0,0,0)",
+        "image_placement": "left",
+        "slide_autoplay": true,
+        "show_navigation": false,
+        "show_pagination": true,
+        "autorotate_speed": 3,
+        "pcard_layout": "",
+        "pcard_alignment": "center",
+        "pcard_image_ratio": "original",
+        "show_vendor": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "fade-in-up"
+      }
+    },
+    "162251092958fcda7c": {
+      "type": "product-tabs",
+      "blocks": {
+        "162251092958fcda7c-0": {
+          "type": "tab",
+          "settings": {
+            "title": "Best sellers",
+            "collection": "best-seller"
+          }
+        },
+        "162251092958fcda7c-1": {
+          "type": "tab",
+          "settings": {
+            "title": "New arrivals",
+            "collection": "new-arrivals"
+          }
+        },
+        "tab_BdjLt8": {
+          "type": "tab",
+          "settings": {
+            "title": "Back In Store",
+            "collection": "water-bottle"
+          }
+        }
+      },
+      "block_order": [
+        "162251092958fcda7c-0",
+        "162251092958fcda7c-1",
+        "tab_BdjLt8"
+      ],
+      "settings": {
+        "heading": "You are in",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "background_color": "rgba(0,0,0,0)",
+        "tab_header": "select",
+        "limit": 8,
+        "show_button": true,
+        "button_type": "link",
+        "button_label": "Shop All Products",
+        "button_style": "m-button--secondary",
+        "button_size": "",
+        "pcard_layout": "3",
+        "pcard_image_ratio": "1/1",
+        "show_vendor": false,
+        "items_per_row": 4,
+        "item_gap": 50,
+        "enable_slider": false,
+        "show_navigation": false,
+        "show_pagination": false,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "item_gap_mobile": 16,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "sf-home__product-tab",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_UXQmFm": {
+      "type": "custom-content",
+      "blocks": {
+        "product_bundles_dqM693": {
+          "type": "product_bundles",
+          "settings": {
+            "use_collection_for_bundle": false,
+            "bundle_collection": "water-bottle",
+            "bundle_collection_limit": 4,
+            "width": "50%",
+            "alignment": "center",
+            "title": "Bundles & save!",
+            "subheading": "",
+            "text_size": "h2",
+            "show_reviews": false,
+            "product_1": "2026-active-noise-cancelling-headphones-70h-playtime-clear-calls-electronics-flash-sale-headset-hc905-bluetooth-5-3",
+            "product_2": "colorful-wired-gaming-mouse-usb-computer-dpi-rgb-lighting-mouse-for-computer-pc-laptop-home-office-supplies",
+            "product_3": "k500-b61-machenike-mini-mechanical-keybaord-60-form-factor-61keys-gaming-keybaord-wired-full-key-hot-swappable-rgb-backlit",
+            "product_4": "",
+            "product_5": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "lookbook_hry8QD": {
+          "type": "lookbook",
+          "settings": {
+            "width": "50%",
+            "image": "shopify://shop_images/white-wl.jpg",
+            "top_1": 9,
+            "left_1": 63,
+            "product_1": "2026-active-noise-cancelling-headphones-70h-playtime-clear-calls-electronics-flash-sale-headset-hc905-bluetooth-5-3",
+            "top_2": 26,
+            "left_2": 50,
+            "product_2": "sodo-sd-1004-wireless-headphones-foldable-bluetooth-5-3-hifi-stereo-headset-40mm-driver-over-ear-headphone-with-mic-support-tf",
+            "top_3": 61,
+            "left_3": 48,
+            "product_3": "colorful-wired-gaming-mouse-usb-computer-dpi-rgb-lighting-mouse-for-computer-pc-laptop-home-office-supplies",
+            "top_4": 42,
+            "left_4": 0,
+            "product_4": "",
+            "top_5": 20,
+            "left_5": 0,
+            "product_5": "computer-gaming-keyboard-light-backlit-rgb-mute-wired-keyboard-usb-office-home-russian-french-spanish-german-arabic-english",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "product_bundles_dqM693",
+        "lookbook_hry8QD"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Shop this look",
+        "heading_size": "h2",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "gap": 30,
+        "use_scroll_mobile": false,
+        "gap_mobile": 16,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": ""
+      }
+    },
+    "7ea56e8d-5794-4708-8812-8ee9604a3a21": {
+      "type": "custom-content",
+      "blocks": {
+        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S88315cd7b11d4a31955d4843f03a46c5S.webp",
+            "link": "",
+            "enable_3d_animation": false,
+            "shadow_color": "#d97706",
+            "enable_price_tiers": false,
+            "tier_low_price": 50,
+            "tier_mid_price": 150,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "zoom-fade"
+          }
+        },
+        "5c5877d5-05b2-4a50-81e3-78c3f6d0d833": {
+          "type": "image_card",
+          "settings": {
+            "width": "50%",
+            "content_position": "top_center",
+            "content_alignment": "left",
+            "text_size": "medium",
+            "text_color": "black",
+            "image": "shopify://shop_images/S81b27673c946433db5bd08e75a1a4371U.webp",
+            "link": "shopify://collections/shoes",
+            "title": "Freshness Will Come Near To You",
+            "subtitle": "New collection",
+            "button_label": "Shop New Collection",
+            "button_style": "m-button--primary",
+            "button_size": "m-button--large",
+            "button_fixed": true,
+            "use_content_above": true,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1",
+        "5c5877d5-05b2-4a50-81e3-78c3f6d0d833"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "gap": 0,
+        "use_scroll_mobile": false,
+        "gap_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "sf-custom--collection-banner"
+      }
+    },
+    "7731d6df-9d53-4c34-9efb-98fac2fa365d": {
+      "type": "icon-box",
+      "blocks": {
+        "template--15977492021425__7731d6df-9d53-4c34-9efb-98fac2fa365d-16769649642102c2d8-1": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/desk-lamp-olive.png",
+            "image_by_url": "",
+            "title": "Bright Your Future",
+            "description": "<p>Add a free personalized note during checkout.</p>",
+            "link": "",
+            "button_label": "Shop Shoes",
+            "button_link": "shopify://products/adjustable-black-desk-lamp",
+            "button_style": "m-button--secondary",
+            "button_size": ""
+          }
+        },
+        "template--15977492021425__7731d6df-9d53-4c34-9efb-98fac2fa365d-16769649642102c2d8-0": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Web_PNG_Square-TheVitalizeMacroMethodBackpack30.9QT-RoseQuartz-Front.png",
+            "image_by_url": "",
+            "title": "The premium Back Pack",
+            "description": "<p>Brittany Bathgate shows how less is more.</p>",
+            "link": "",
+            "button_label": "Shop bags",
+            "button_link": "shopify://collections/all",
+            "button_style": "m-button--secondary",
+            "button_size": ""
+          }
+        },
+        "template--15977492021425__7731d6df-9d53-4c34-9efb-98fac2fa365d-16769649642102c2d8-2": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Web_PNG_Square-The_Legendary_Useful_Box_1.25QT_-_Rose_Quartz_-_Hero_Exploded_3fba531c-6ef8-4a76-83af-1b366292f8d2.webp",
+            "image_by_url": "",
+            "title": "The Fantastic Tiffin Period",
+            "description": "<p>Something premium is here!</p>",
+            "link": "",
+            "button_label": "Shop Shirts",
+            "button_link": "shopify://collections/all",
+            "button_style": "m-button--secondary",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15977492021425__7731d6df-9d53-4c34-9efb-98fac2fa365d-16769649642102c2d8-1",
+        "template--15977492021425__7731d6df-9d53-4c34-9efb-98fac2fa365d-16769649642102c2d8-0",
+        "template--15977492021425__7731d6df-9d53-4c34-9efb-98fac2fa365d-16769649642102c2d8-2"
+      ],
+      "custom_css": [
+        ".sf__btn {margin-top: 24px; padding-left: 25px; padding-right: 25px; border-color: #dadada;}"
+      ],
+      "settings": {
+        "heading": "Season Collection",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "rgba(0,0,0,0)",
+        "item_per_row": 3,
+        "item_gap": 30,
+        "item_gap_mobile": 16,
+        "card_style": "vertical",
+        "image_max_width": "100%",
+        "content_alignment": "center",
+        "hover_effect": "scaling-up",
+        "enable_slider": true,
+        "show_pagination": true,
+        "show_navigation": false,
+        "use_scroll_mobile": true,
+        "use_grid_column_mb": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "sf-icon-box--large",
+        "animations": "inherit"
+      }
+    },
+    "721388d4-7859-4958-b320-c705800d31d9": {
+      "type": "lookbook",
+      "blocks": {
+        "65a3de0e-b3e4-4c97-b3e5-2f2f03d92449": {
+          "type": "lookbook-slider",
+          "settings": {
+            "sub_title": "Favorite products",
+            "title": "Shop this look",
+            "text": "",
+            "content_alignment": "center",
+            "text_color": "black",
+            "background_color": "",
+            "image": "shopify://shop_images/desk-lamp-olive-bg.jpg",
+            "button_style": "dark",
+            "top_1": 32,
+            "left_1": 44,
+            "product_1": "18-5-cyan-brass-gold-adjustable-cantilever-led-task-lamp-with-usb-charging-port-vintage-farmhouse-desk-lamp-for-home-o",
+            "top_2": 45,
+            "left_2": 50,
+            "product_2": "2l-drink-bottle-for-sport-large-capacity-stainless-steel-sport-bottle-single-layer-water-cup-metal-flask-drinkware-camping-sport",
+            "top_3": 87,
+            "left_3": 45,
+            "product_3": "750ml-large-capacity-thermos-stainless-steel-jar-lunch-box-food-soup-container-food-flask-free-with-spoon",
+            "top_4": 0,
+            "left_4": 0,
+            "product_4": "304-stainless-steel-multitier-insulated-lunch-box-portable-bento-container-leak-resistant-large-capacity-for-students-office",
+            "top_5": 20,
+            "left_5": 0,
+            "product_5": "backpack-school-bag-girl-back-pack-for-children-kid-child-teenager-female-class-schoolbag-primary-women-bagpack-teen-bookbag-kit",
+            "product_per_view": "2",
+            "show_pagination": true,
+            "show_navigation": true,
+            "pcard_layout": "",
+            "pcard_image_ratio": "",
+            "show_vendor": false,
+            "hide_title": false
+          }
+        }
+      },
+      "block_order": [
+        "65a3de0e-b3e4-4c97-b3e5-2f2f03d92449"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "left",
+        "container": "container",
+        "background_color": "rgba(0,0,0,0)",
+        "image_aspect_ratio": "1/1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "de0a17f2-43a3-4a11-a2b7-f2092303f3a7": {
+      "type": "custom-content",
+      "blocks": {
+        "9ef56b70-2b08-4f55-b9ef-5a1539ae0225": {
+          "type": "handpicked_products",
+          "settings": {
+            "width": "50%",
+            "alignment": "center",
+            "subtitle": "Favorite products",
+            "title": "Shop this look",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "sf__btn-primary",
+            "button_size": "",
+            "text_size": "medium",
+            "content_alignment": "center",
+            "product_list": [
+              "seamless-crop-top",
+              "seamless-cycling-shorts",
+              "cateye-sunglasses"
+            ],
+            "product_to_show": 6,
+            "items_per_row": 2,
+            "item_gap": 30,
+            "pcard_layout": "",
+            "pcard_image_ratio": "",
+            "show_vendor": false,
+            "hide_title": false,
+            "enable_slider": true,
+            "show_pagination": true,
+            "show_navigation": true,
+            "use_scroll_mobile": true,
+            "item_gap_mobile": 16,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "9a3e8bcd-5794-42eb-8e4e-2a5865b48e29": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video_type": "shopify",
+            "video_link": "",
+            "ratio": "4:3",
+            "video_title": "",
+            "text_size": "medium",
+            "text_color": "white",
+            "play_style": "solid",
+            "play_size": "medium",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "show_controls": false,
+            "width": "50%",
+            "alignment": "start",
+            "block_custom_class": "sf-video--custom-content",
+            "animations": "inherit"
+          }
+        },
+        "193adc84-8ce7-4336-b4c7-7142a2c81b10": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "enable_3d_animation": false,
+            "shadow_color": "#d97706",
+            "enable_price_tiers": false,
+            "tier_low_price": 50,
+            "tier_mid_price": 150,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "9ef56b70-2b08-4f55-b9ef-5a1539ae0225",
+        "9a3e8bcd-5794-42eb-8e4e-2a5865b48e29",
+        "193adc84-8ce7-4336-b4c7-7142a2c81b10"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "background_color": "",
+        "gap": 0,
+        "use_scroll_mobile": false,
+        "gap_mobile": 16,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "m-custom-content--favorite-products"
+      }
+    },
+    "custom_testimonial_D3pYaD": {
+      "type": "custom-testimonial",
+      "blocks": {
+        "testimonial_kCJ44w": {
+          "type": "testimonial",
+          "settings": {
+            "hero_image_alt": "",
+            "avatar": "shopify://shop_images/Sophia_Mitchell.png",
+            "name": "Sarah M.",
+            "role": "Verified Buyer",
+            "rating": 4,
+            "review": "Absolutely love this product! The quality is truly outstanding, and you can immediately tell that a lot of attention has gone .Absolutely love this product! The quality is truly outstanding, and you can immediately tel"
+          }
+        },
+        "testimonial_ijUUGY": {
+          "type": "testimonial",
+          "settings": {
+            "hero_image_alt": "",
+            "avatar": "shopify://shop_images/Andrei_Constantin.png",
+            "name": "James K.",
+            "role": "Loyal Customer",
+            "rating": 5,
+            "review": "Absolutely love this product! The quality is truly outstanding, and you can immediately tell that a lot of attention has gone .Absolutely love this product! The quality is truly outstanding, and you can immediately tell that a lot of attention has gone ."
+          }
+        },
+        "testimonial_QLAqAb": {
+          "type": "testimonial",
+          "settings": {
+            "hero_image_alt": "",
+            "avatar": "shopify://shop_images/Elena_Popescu.png",
+            "name": "Priya L.",
+            "role": "Fashion Blogger",
+            "rating": 4,
+            "review": "Absolutely love this product! The quality is truly outstanding, and you can immediately tell that a lot of attention has gone ."
+          }
+        },
+        "testimonial_WFaWKj": {
+          "type": "testimonial",
+          "settings": {
+            "hero_image_alt": "",
+            "avatar": "shopify://shop_images/Ioana_Mihai.png",
+            "name": "Carlos R.",
+            "role": "Verified Buyer",
+            "rating": 5,
+            "review": "Exceeded all my expectations in every possible way. The craftsmanship is absolutely top-notch, with impressive ."
+          }
+        },
+        "testimonial_qbmbhj": {
+          "type": "testimonial",
+          "settings": {
+            "hero_image_alt": "",
+            "avatar": "shopify://shop_images/Ethan_Carter.png",
+            "name": "Maria jonson",
+            "role": "Verified Buyer",
+            "rating": 4,
+            "review": "Great style and extremely comfortable to use every day. The design looks even better in person, and the overall quality completely exceeded my expectations."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_kCJ44w",
+        "testimonial_ijUUGY",
+        "testimonial_QLAqAb",
+        "testimonial_WFaWKj",
+        "testimonial_qbmbhj"
+      ],
+      "name": "Testimonials Carousel",
+      "settings": {
+        "section_bg": "#ffffff",
+        "section_padding_v": 56,
+        "section_padding_h": 20,
+        "eyebrow": "",
+        "eyebrow_color": "#000000",
+        "eyebrow_size": 14,
+        "eyebrow_style": "italic",
+        "heading": "Shopper Stories",
+        "heading_color": "#000000",
+        "heading_size": 34,
+        "heading_weight": "700",
+        "show_heading_bg": false,
+        "heading_bg_size": 100,
+        "heading_bg_color": "#000000",
+        "heading_bg_opacity": 8,
+        "header_gap": 68,
+        "card_bg": "#ffffff",
+        "card_border_color": "#ffffff",
+        "card_border_width": 2,
+        "card_radius": 16,
+        "card_shadow": "0 10px 30px rgba(212, 175, 55, 0.12),0 4px 12px rgba(0, 0, 0, 0.08)",
+        "card_padding_v": 28,
+        "card_padding_h": 24,
+        "card_gap": 8,
+        "center_scale": 114,
+        "card_center_bg": "#fff",
+        "card_center_border_color": "#b9b8b8",
+        "card_center_border_width": 2,
+        "card_center_shadow": "0 10px 30px rgba(0,0,0,0.08),0 2px 10px rgba(0,0,0,0.04)",
+        "center_review_size": 16,
+        "center_review_weight": "600",
+        "center_review_color": "#000000",
+        "side_opacity": 55,
+        "side_blur": 1,
+        "side_scale": 95,
+        "side2_opacity": 25,
+        "side2_blur": 2,
+        "side2_scale": 88,
+        "hero_aspect": "4/3",
+        "hero_gap": 16,
+        "avatar_size": 68,
+        "avatar_border_color": "#ffffff",
+        "avatar_placeholder_bg": "#222222",
+        "name_size": 16,
+        "name_weight": "700",
+        "name_color": "#000000",
+        "role_size": 13,
+        "role_color": "#000000",
+        "author_gap": 12,
+        "show_stars": true,
+        "star_size": 18,
+        "star_color": "#f1c827",
+        "star_empty_color": "#333333",
+        "stars_gap": 10,
+        "review_size": 14,
+        "review_color": "#000000",
+        "review_line_height": 1.7,
+        "show_quote_icon": true,
+        "quote_size": 72,
+        "quote_color": "#f6df83",
+        "quote_top": 12,
+        "quote_right": 16,
+        "show_arrows": true,
+        "arrow_size": 44,
+        "arrow_margin": 8,
+        "arrow_bg": "#ffffff",
+        "arrow_border_color": "#000000",
+        "arrow_color": "#000000",
+        "arrow_hover_bg": "#f9e4e4",
+        "arrow_hover_color": "#000000",
+        "show_dots": true,
+        "dot_size": 10,
+        "dot_color": "#f6df83",
+        "dot_active_color": "#f6df83",
+        "dots_margin_top": 28,
+        "autoplay": true,
+        "autoplay_speed": 3500,
+        "transition_speed": 500,
+        "tablet_breakpoint": 1024,
+        "tablet_center_scale": 106,
+        "tablet_side_scale": 94,
+        "tablet_side_blur": 1,
+        "hide_arrows_tablet": false,
+        "mobile_padding_v": 48,
+        "mobile_padding_h": 16,
+        "mobile_card_width": 80,
+        "mobile_center_scale": 105,
+        "mobile_side_scale": 90,
+        "mobile_side_blur": 1,
+        "mobile_heading_size": 32,
+        "mobile_eyebrow_size": 13,
+        "mobile_review_size": 13,
+        "mobile_center_review_size": 14,
+        "mobile_avatar_size": 40,
+        "mobile_name_size": 14
+      }
+    },
+    "16225125199f82d8fe": {
+      "type": "icon-box",
+      "blocks": {
+        "16225125199f82d8fe-0": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/free-shipping.png",
+            "image_by_url": "",
+            "title": "Free Shipping",
+            "description": "<p>Free Shipping for orders over £130</p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "sf__btn-link",
+            "button_size": ""
+          }
+        },
+        "16225125199f82d8fe-1": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/money-back-guarantee.png",
+            "image_by_url": "",
+            "title": "Money Guarantee",
+            "description": "<p>Within 30 days for an exchange.</p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "sf__btn-link",
+            "button_size": ""
+          }
+        },
+        "16225125199f82d8fe-2": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/customer-support.png",
+            "image_by_url": "",
+            "title": "Online Support",
+            "description": "<p>24 hours a day, 7 days a week</p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "sf__btn-link",
+            "button_size": ""
+          }
+        },
+        "71deafbb-3baf-443a-a087-3f7b8af7b9fa": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/working-hours.png",
+            "image_by_url": "",
+            "title": "Flexible Payment",
+            "description": "<p>Pay with Multiple Credit Cards</p>",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "sf__btn-link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "16225125199f82d8fe-0",
+        "16225125199f82d8fe-1",
+        "16225125199f82d8fe-2",
+        "71deafbb-3baf-443a-a087-3f7b8af7b9fa"
+      ],
+      "settings": {
+        "heading": "Shop With Confidence",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "background_color": "#ffffff",
+        "item_per_row": 4,
+        "item_gap": 30,
+        "item_gap_mobile": 10,
+        "card_style": "horizontal",
+        "image_max_width": "60px",
+        "content_alignment": "start",
+        "hover_effect": "none",
+        "enable_slider": false,
+        "show_pagination": true,
+        "show_navigation": true,
+        "use_scroll_mobile": false,
+        "use_grid_column_mb": false,
+        "padding_top": 46,
+        "padding_bottom": 46,
+        "custom_class": "m-icon-box--small",
+        "animations": "inherit"
+      }
+    },
+    "favorite_product_slider_daEXbM": {
+      "type": "favorite-product-slider",
+      "name": "Favorite product slider",
+      "settings": {
+        "heading": "You May Also Like",
+        "collection": "all-products",
+        "products_to_show": 20,
+        "card_width": 240,
+        "image_height": 220,
+        "card_gap": 16,
+        "card_radius": 10,
+        "title_size": 14,
+        "price_size": 15,
+        "heading_size": 28,
+        "bg_color": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "price_color": "#e85d04",
+        "scroll_speed": 3,
+        "section_padding": 40,
+        "show_dots": true
+      }
+    }
+  },
+  "order": [
+    "c72959ad-9620-4e94-ae33-1bde908e9701",
+    "1621243260e1af0c20",
+    "scrolling_promotion_3tpT9a",
+    "16225316461d1cff80",
+    "featured_collection_TPxdVh",
+    "featured_product_slider_WGk9TY",
+    "162251092958fcda7c",
+    "custom_content_UXQmFm",
+    "7ea56e8d-5794-4708-8812-8ee9604a3a21",
+    "7731d6df-9d53-4c34-9efb-98fac2fa365d",
+    "721388d4-7859-4958-b320-c705800d31d9",
+    "de0a17f2-43a3-4a11-a2b7-f2092303f3a7",
+    "custom_testimonial_D3pYaD",
+    "16225125199f82d8fe",
+    "favorite_product_slider_daEXbM"
+  ]
+}

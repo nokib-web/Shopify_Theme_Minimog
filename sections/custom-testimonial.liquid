@@ -1,0 +1,773 @@
+{% comment %}
+  Section: Testimonials Carousel — Enhanced
+  File: sections/testimonials-carousel.liquid
+  Features:
+    - 5 visible cards on desktop (2 faded side + 1 faded near-side + 1 highlighted center)
+    - Product/image card support for center highlight
+    - Fully responsive: desktop / tablet / mobile customization
+    - Infinite loop with clone technique
+    - Autoplay, arrows, dots, touch/swipe
+{% endcomment %}
+
+<style>
+  #tc-{{ section.id }} {
+    --tc-section-bg:          {{ section.settings.section_bg }};
+    --tc-section-pad-v:       {{ section.settings.section_padding_v }}px;
+    --tc-section-pad-h:       {{ section.settings.section_padding_h }}px;
+    --tc-card-gap:            {{ section.settings.card_gap }}px;
+    --tc-card-radius:         {{ section.settings.card_radius }}px;
+    --tc-card-bg:             {{ section.settings.card_bg }};
+    --tc-card-border:         {{ section.settings.card_border_width }}px solid {{ section.settings.card_border_color }};
+    --tc-card-shadow:         {{ section.settings.card_shadow }};
+    --tc-card-pad-v:          {{ section.settings.card_padding_v }}px;
+    --tc-card-pad-h:          {{ section.settings.card_padding_h }}px;
+    --tc-center-bg:           {{ section.settings.card_center_bg }};
+    --tc-center-border:       {{ section.settings.card_center_border_width }}px solid {{ section.settings.card_center_border_color }};
+    --tc-center-shadow:       {{ section.settings.card_center_shadow }};
+    --tc-center-scale:        {{ section.settings.center_scale | divided_by: 100.0 }};
+    --tc-side-opacity:        {{ section.settings.side_opacity | divided_by: 100.0 }};
+    --tc-side2-opacity:       {{ section.settings.side2_opacity | divided_by: 100.0 }};
+    --tc-side-blur:           {{ section.settings.side_blur }}px;
+    --tc-side2-blur:          {{ section.settings.side2_blur }}px;
+    --tc-side-scale:          {{ section.settings.side_scale | divided_by: 100.0 }};
+    --tc-side2-scale:         {{ section.settings.side2_scale | divided_by: 100.0 }};
+    --tc-arrow-size:          {{ section.settings.arrow_size }}px;
+    --tc-arrow-bg:            {{ section.settings.arrow_bg }};
+    --tc-arrow-border:        1px solid {{ section.settings.arrow_border_color }};
+    --tc-arrow-color:         {{ section.settings.arrow_color }};
+    --tc-arrow-hover-bg:      {{ section.settings.arrow_hover_bg }};
+    --tc-arrow-hover-color:   {{ section.settings.arrow_hover_color }};
+    --tc-dot-size:            {{ section.settings.dot_size }}px;
+    --tc-dot-color:           {{ section.settings.dot_color }};
+    --tc-dot-active:          {{ section.settings.dot_active_color }};
+    --tc-transition:          {{ section.settings.transition_speed }}ms cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .tc-section {
+    background: var(--tc-section-bg);
+    padding: var(--tc-section-pad-v) var(--tc-section-pad-h);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── Header ── */
+  .tc-header {
+    text-align: center;
+    margin-bottom: {{ section.settings.header_gap }}px;
+  }
+  .tc-eyebrow {
+    display: block;
+    font-size: {{ section.settings.eyebrow_size }}px;
+    color: {{ section.settings.eyebrow_color }};
+    font-style: {{ section.settings.eyebrow_style }};
+    letter-spacing: 0.05em;
+    margin: 0 0 8px;
+  }
+  .tc-heading-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .tc-heading-bg {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: {{ section.settings.heading_bg_size }}px;
+    font-weight: 900;
+    color: {{ section.settings.heading_bg_color }};
+    opacity: {{ section.settings.heading_bg_opacity | divided_by: 100.0 }};
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.06em;
+    z-index: 0;
+  }
+  .tc-heading {
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: {{ section.settings.heading_weight }};
+    color: {{ section.settings.heading_color }};
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Carousel outer ── */
+  .tc-carousel-outer {
+    display: flex;
+    align-items: center;
+  }
+  .tc-track-wrap {
+    overflow: hidden;
+    width: 100%;
+    padding: 32px 0;
+    margin: -32px 0;
+    box-sizing: content-box;
+  }
+  .tc-track {
+    display: flex;
+    gap: var(--tc-card-gap);
+    transition: transform var(--tc-transition);
+    will-change: transform;
+  }
+
+  /* ── Card base ── */
+  .tc-card {
+    flex: 0 0 calc((100% - var(--tc-card-gap) * 4) / 5);
+    background: var(--tc-card-bg);
+    border: var(--tc-card-border);
+    border-radius: var(--tc-card-radius);
+    padding: var(--tc-card-pad-v) var(--tc-card-pad-h);
+    box-shadow: var(--tc-card-shadow);
+    position: relative;
+    transition:
+      transform var(--tc-transition),
+      opacity var(--tc-transition),
+      filter var(--tc-transition),
+      box-shadow var(--tc-transition),
+      background var(--tc-transition),
+      border-color var(--tc-transition);
+
+    /* Far-side default */
+    opacity: var(--tc-side2-opacity);
+    filter: blur(var(--tc-side2-blur)) brightness(0.55);
+    transform: scale(var(--tc-side2-scale));
+  }
+
+  /* Near-side (index ±1 from center) */
+  .tc-card.is-near {
+    opacity: var(--tc-side-opacity);
+    filter: blur(var(--tc-side-blur)) brightness(0.75);
+    transform: scale(var(--tc-side-scale));
+  }
+
+  /* Center card */
+  .tc-card.is-center {
+    background: var(--tc-center-bg);
+    border: var(--tc-center-border);
+    box-shadow: var(--tc-center-shadow);
+    transform: scale(var(--tc-center-scale));
+    opacity: 1;
+    filter: none;
+    z-index: 2;
+  }
+
+  /* Center image (product/hero image) */
+  .tc-card-hero {
+    width: 100%;
+    aspect-ratio: {{ section.settings.hero_aspect }};
+    object-fit: cover;
+    border-radius: calc(var(--tc-card-radius) - 4px);
+    margin-bottom: {{ section.settings.hero_gap }}px;
+    display: block;
+  }
+
+  /* ── Author row ── */
+  .tc-author-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: {{ section.settings.author_gap }}px;
+  }
+  .tc-avatar {
+    width: {{ section.settings.avatar_size }}px;
+    height: {{ section.settings.avatar_size }}px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid {{ section.settings.avatar_border_color }};
+    flex-shrink: 0;
+  }
+  .tc-avatar-placeholder {
+    width: {{ section.settings.avatar_size }}px;
+    height: {{ section.settings.avatar_size }}px;
+    border-radius: 50%;
+    background: {{ section.settings.avatar_placeholder_bg }};
+    border: 2px solid {{ section.settings.avatar_border_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: {{ section.settings.avatar_size | divided_by: 2 }}px;
+    color: {{ section.settings.card_border_color }};
+  }
+  .tc-author-name {
+    font-size: {{ section.settings.name_size }}px;
+    font-weight: {{ section.settings.name_weight }};
+    color: {{ section.settings.name_color }};
+    margin: 0 0 2px;
+    line-height: 1.2;
+  }
+  .tc-author-role {
+    font-size: {{ section.settings.role_size }}px;
+    color: {{ section.settings.role_color }};
+    margin: 0;
+  }
+
+  /* ── Stars ── */
+  .tc-stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: {{ section.settings.stars_gap }}px;
+  }
+  .tc-star        { font-size: {{ section.settings.star_size }}px; color: {{ section.settings.star_color }}; }
+  .tc-star.empty  { color: {{ section.settings.star_empty_color }}; }
+
+  /* ── Review ── */
+  .tc-review {
+    font-size: {{ section.settings.review_size }}px;
+    color: {{ section.settings.review_color }};
+    line-height: {{ section.settings.review_line_height }};
+    margin: 0;
+  }
+  .tc-card.is-center .tc-review {
+    font-size: {{ section.settings.center_review_size }}px;
+    font-weight: {{ section.settings.center_review_weight }};
+    color: {{ section.settings.center_review_color }};
+  }
+
+  /* ── Quote icon ── */
+  .tc-quote-icon {
+    position: absolute;
+    top: {{ section.settings.quote_top }}px;
+    right: {{ section.settings.quote_right }}px;
+    font-size: {{ section.settings.quote_size }}px;
+    color: {{ section.settings.quote_color }};
+    opacity: 0.22;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── Arrows ── */
+  .tc-arrow {
+    background: var(--tc-arrow-bg);
+    border: var(--tc-arrow-border);
+    color: var(--tc-arrow-color);
+    width: var(--tc-arrow-size);
+    height: var(--tc-arrow-size);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 18px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    z-index: 5;
+    margin: 0 {{ section.settings.arrow_margin }}px;
+  }
+  .tc-arrow:hover {
+    background: var(--tc-arrow-hover-bg);
+    color: var(--tc-arrow-hover-color);
+    transform: scale(1.1);
+  }
+
+  /* ── Dots ── */
+  .tc-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: {{ section.settings.dots_margin_top }}px;
+  }
+  .tc-dot {
+    width: var(--tc-dot-size);
+    height: var(--tc-dot-size);
+    border-radius: 50%;
+    background: var(--tc-dot-color);
+    opacity: 0.3;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .tc-dot.active {
+    opacity: 1;
+    background: var(--tc-dot-active);
+    transform: scale(1.35);
+  }
+
+  /* ── TABLET (769–1024px): show 3 cards ── */
+  @media (min-width: 769px) and (max-width: {{ section.settings.tablet_breakpoint }}px) {
+    .tc-card {
+      flex: 0 0 calc((100% - var(--tc-card-gap) * 2) / 3);
+      opacity: var(--tc-side-opacity);
+      filter: blur({{ section.settings.tablet_side_blur }}px) brightness(0.7);
+      transform: scale({{ section.settings.tablet_side_scale | divided_by: 100.0 }});
+    }
+    .tc-card.is-near {
+      opacity: var(--tc-side-opacity);
+      filter: blur({{ section.settings.tablet_side_blur }}px) brightness(0.7);
+      transform: scale({{ section.settings.tablet_side_scale | divided_by: 100.0 }});
+    }
+    .tc-card.is-center {
+      transform: scale({{ section.settings.tablet_center_scale | divided_by: 100.0 }});
+      opacity: 1;
+      filter: none;
+    }
+    .tc-arrow {
+      {% if section.settings.hide_arrows_tablet %}display: none !important;{% endif %}
+    }
+  }
+
+  /* ── MOBILE (≤768px): show 1 card centred, neighbours peek ── */
+  @media (max-width: 768px) {
+    .tc-section {
+      padding: {{ section.settings.mobile_padding_v }}px {{ section.settings.mobile_padding_h }}px;
+    }
+    .tc-card {
+      flex: 0 0 {{ section.settings.mobile_card_width }}%;
+      opacity: var(--tc-side-opacity);
+      filter: blur({{ section.settings.mobile_side_blur }}px) brightness(0.65);
+      transform: scale({{ section.settings.mobile_side_scale | divided_by: 100.0 }});
+    }
+    .tc-card.is-near {
+      opacity: var(--tc-side-opacity);
+      filter: blur({{ section.settings.mobile_side_blur }}px) brightness(0.65);
+      transform: scale({{ section.settings.mobile_side_scale | divided_by: 100.0 }});
+    }
+    .tc-card.is-center {
+      transform: scale({{ section.settings.mobile_center_scale | divided_by: 100.0 }});
+      opacity: 1;
+      filter: none;
+    }
+    .tc-arrow { display: none !important; }
+    .tc-heading { font-size: {{ section.settings.mobile_heading_size }}px; }
+    .tc-eyebrow { font-size: {{ section.settings.mobile_eyebrow_size }}px; }
+    .tc-review  { font-size: {{ section.settings.mobile_review_size }}px; }
+    .tc-card.is-center .tc-review { font-size: {{ section.settings.mobile_center_review_size }}px; }
+    .tc-avatar  { width: {{ section.settings.mobile_avatar_size }}px; height: {{ section.settings.mobile_avatar_size }}px; }
+    .tc-author-name { font-size: {{ section.settings.mobile_name_size }}px; }
+  }
+</style>
+
+<section class="tc-section" id="tc-{{ section.id }}">
+
+  <!-- Header -->
+  <div class="tc-header">
+    {% if section.settings.eyebrow != blank %}
+      <span class="tc-eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    <div class="tc-heading-wrap">
+      {% if section.settings.show_heading_bg %}
+        <span class="tc-heading-bg">{{ section.settings.heading }}</span>
+      {% endif %}
+      <h2 class="tc-heading">{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="tc-carousel-outer">
+
+    {% if section.settings.show_arrows %}
+      <button class="tc-arrow" id="tc-prev-{{ section.id }}" aria-label="Previous">&#8592;</button>
+    {% endif %}
+
+    <div class="tc-track-wrap">
+      <div class="tc-track" id="tc-track-{{ section.id }}">
+        {% for block in section.blocks %}
+          {% if block.type == 'testimonial' %}
+            <div class="tc-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+
+              {% if section.settings.show_quote_icon %}
+                <span class="tc-quote-icon">&#8220;</span>
+              {% endif %}
+
+              {% if block.settings.hero_image != blank %}
+                <img
+                  class="tc-card-hero"
+                  src="{{ block.settings.hero_image | image_url: width: 800 }}"
+                  alt="{{ block.settings.hero_image_alt | default: block.settings.name }}"
+                  loading="lazy"
+                  width="800"
+                >
+              {% endif %}
+
+              <div class="tc-author-row">
+                {% if block.settings.avatar != blank %}
+                  <img class="tc-avatar" src="{{ block.settings.avatar | image_url: width: 120 }}" alt="{{ block.settings.name }}" width="{{ section.settings.avatar_size }}" height="{{ section.settings.avatar_size }}" loading="lazy">
+                {% else %}
+                  <div class="tc-avatar-placeholder">👤</div>
+                {% endif %}
+                <div>
+                  <p class="tc-author-name">{{ block.settings.name }}</p>
+                  <p class="tc-author-role">{{ block.settings.role }}</p>
+                </div>
+              </div>
+
+              {% if section.settings.show_stars %}
+                <div class="tc-stars">
+                  {% assign rating = block.settings.rating %}
+                  {% for i in (1..5) %}
+                    {% if i <= rating %}<span class="tc-star">★</span>
+                    {% else %}<span class="tc-star empty">★</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <p class="tc-review">{{ block.settings.review }}</p>
+
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.settings.show_arrows %}
+      <button class="tc-arrow" id="tc-next-{{ section.id }}" aria-label="Next">&#8594;</button>
+    {% endif %}
+
+  </div>
+
+  {% if section.settings.show_dots %}
+    <div class="tc-dots" id="tc-dots-{{ section.id }}"></div>
+  {% endif %}
+
+</section>
+
+<script>
+(function () {
+  var sid         = '{{ section.id }}';
+  var track       = document.getElementById('tc-track-' + sid);
+  var prevBtn     = document.getElementById('tc-prev-' + sid);
+  var nextBtn     = document.getElementById('tc-next-' + sid);
+  var dotsWrap    = document.getElementById('tc-dots-' + sid);
+  var autoDelay   = {{ section.settings.autoplay_speed }};
+  var autoEnabled = {{ section.settings.autoplay }};
+  var tabletBp    = {{ section.settings.tablet_breakpoint }};
+  var autoTimer, isTransitioning = false;
+
+  if (!track) return;
+
+  /* ── Breakpoint helpers ── */
+  function isMobile()  { return window.innerWidth <= 768; }
+  function isTablet()  { return window.innerWidth > 768 && window.innerWidth <= tabletBp; }
+  function isDesktop() { return window.innerWidth > tabletBp; }
+
+  /* visibleCount: how many cards show at once per breakpoint */
+  function visibleCount() {
+    if (isMobile())  return 1;
+    if (isTablet())  return 3;
+    return 5;
+  }
+
+  /* The center-slot offset from the left-slot index */
+  function centerOffset() { return Math.floor(visibleCount() / 2); }
+
+  /* ── Collect original cards ── */
+  var origCards = Array.from(track.querySelectorAll('.tc-card'));
+  var total     = origCards.length;
+  if (total === 0) return;
+
+  /* ── Clone for infinite loop ── */
+  var cloneCount = 5; // enough for 5-card view
+
+  var prependClones = origCards.slice(-cloneCount).map(function (c) {
+    var cl = c.cloneNode(true);
+    cl.setAttribute('aria-hidden', 'true');
+    cl.removeAttribute('data-index');
+    return cl;
+  });
+  var appendClones = origCards.slice(0, cloneCount).map(function (c) {
+    var cl = c.cloneNode(true);
+    cl.setAttribute('aria-hidden', 'true');
+    cl.removeAttribute('data-index');
+    return cl;
+  });
+
+  prependClones.forEach(function (c) { track.insertBefore(c, track.firstChild); });
+  appendClones.forEach(function (c) { track.appendChild(c); });
+
+  /*
+    Layout after cloning:
+    [clone‑last‑5] [original 0..N-1] [clone‑first‑5]
+    Indices 0..cloneCount-1 = prepend clones
+    Indices cloneCount..cloneCount+total-1 = real cards
+    current = left-slot index; center slot = current + centerOffset()
+  */
+  var current = cloneCount;
+
+  /* ── Build dots ── */
+  if (dotsWrap) {
+    origCards.forEach(function (_, i) {
+      var d = document.createElement('button');
+      d.className = 'tc-dot';
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      d.addEventListener('click', function () { resetAuto(); goTo(cloneCount + i - centerOffset()); });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  /* ── Helpers ── */
+  function allCards() { return Array.from(track.querySelectorAll('.tc-card')); }
+
+  function getCardWidth() {
+    var cards = allCards();
+    if (!cards[0]) return 0;
+    var gap = parseFloat(window.getComputedStyle(track).gap) || {{ section.settings.card_gap }};
+    return cards[0].offsetWidth + gap;
+  }
+
+  function getTranslateX(idx) {
+    var cw = getCardWidth();
+    if (isMobile()) {
+      var wrapWidth = track.parentElement.offsetWidth;
+      var cardEl    = allCards()[0];
+      var cardWidth = cardEl ? cardEl.offsetWidth : cw;
+      return (cw * idx) - (wrapWidth - cardWidth) / 2;
+    }
+    return cw * idx;
+  }
+
+  function updateStates() {
+    var co = centerOffset();
+    var ci = current + co; // center card absolute index in full (cloned) array
+    allCards().forEach(function (c, i) {
+      c.classList.remove('is-center', 'is-near');
+      var dist = Math.abs(i - ci);
+      if (dist === 0) c.classList.add('is-center');
+      else if (dist === 1) c.classList.add('is-near');
+    });
+  }
+
+  function updateDots() {
+    if (!dotsWrap) return;
+    var co = centerOffset();
+    var realIdx = ((current + co - cloneCount) % total + total) % total;
+    dotsWrap.querySelectorAll('.tc-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === realIdx);
+    });
+  }
+
+  function jumpTo(idx) {
+    track.style.transition = 'none';
+    track.style.transform  = 'translateX(-' + getTranslateX(idx) + 'px)';
+    current = idx;
+    updateStates();
+    updateDots();
+  }
+
+  function goTo(idx) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current = idx;
+    track.style.transition = 'transform {{ section.settings.transition_speed }}ms cubic-bezier(0.4,0,0.2,1)';
+    track.style.transform  = 'translateX(-' + getTranslateX(current) + 'px)';
+    updateStates();
+    updateDots();
+  }
+
+  track.addEventListener('transitionend', function () {
+    isTransitioning = false;
+    if (current >= cloneCount + total) jumpTo(current - total);
+    else if (current < cloneCount)     jumpTo(current + total);
+  });
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  if (nextBtn) nextBtn.addEventListener('click', function () { resetAuto(); next(); });
+  if (prevBtn) prevBtn.addEventListener('click', function () { resetAuto(); prev(); });
+
+  /* ── Autoplay ── */
+  function startAuto() {
+    if (!autoEnabled && !isMobile()) return;
+    autoTimer = setInterval(next, autoDelay);
+  }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  /* ── Touch / Swipe ── */
+  var touchStartX = 0, touchStartY = 0;
+  track.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    var dx = touchStartX - e.changedTouches[0].clientX;
+    var dy = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      resetAuto();
+      dx > 0 ? next() : prev();
+    }
+  }, { passive: true });
+
+  /* ── Keyboard ── */
+  document.getElementById('tc-' + sid).addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  { resetAuto(); prev(); }
+    if (e.key === 'ArrowRight') { resetAuto(); next(); }
+  });
+
+  /* ── Resize ── */
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      clearInterval(autoTimer);
+      jumpTo(current);
+      startAuto();
+    }, 100);
+  });
+
+  /* ── Init ── */
+  jumpTo(cloneCount);
+  startAuto();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials Carousel",
+  "tag": "div",
+  "settings": [
+    { "type": "header", "content": "🎨 Section" },
+    { "type": "color",  "id": "section_bg", "label": "Section background", "default": "#0a0a0a" },
+    { "type": "range",  "id": "section_padding_v", "label": "Vertical padding", "min": 20, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range",  "id": "section_padding_h", "label": "Horizontal padding", "min": 0,  "max": 80,  "step": 4, "unit": "px", "default": 20 },
+
+    { "type": "header", "content": "✏️ Header Text" },
+    { "type": "text",   "id": "eyebrow", "label": "Eyebrow text", "default": "What our customers say" },
+    { "type": "color",  "id": "eyebrow_color", "label": "Eyebrow color", "default": "#f6df83" },
+    { "type": "range",  "id": "eyebrow_size", "label": "Eyebrow font size", "min": 11, "max": 22, "step": 1, "unit": "px", "default": 14 },
+    { "type": "select", "id": "eyebrow_style", "label": "Eyebrow style", "default": "italic", "options": [{"value":"normal","label":"Normal"},{"value":"italic","label":"Italic"}] },
+    { "type": "text",   "id": "heading", "label": "Heading", "default": "Testimonials" },
+    { "type": "color",  "id": "heading_color", "label": "Heading color", "default": "#f6df83" },
+    { "type": "range",  "id": "heading_size", "label": "Heading font size", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 48 },
+    { "type": "select", "id": "heading_weight", "label": "Heading weight", "default": "700", "options": [{"value":"400","label":"Regular"},{"value":"600","label":"Semibold"},{"value":"700","label":"Bold"},{"value":"900","label":"Black"}] },
+    { "type": "checkbox","id": "show_heading_bg",  "label": "Show watermark behind title", "default": true },
+    { "type": "range",  "id": "heading_bg_size",   "label": "Watermark size", "min": 40, "max": 200, "step": 4, "unit": "px", "default": 100 },
+    { "type": "color",  "id": "heading_bg_color",  "label": "Watermark color", "default": "#f6df83" },
+    { "type": "range",  "id": "heading_bg_opacity","label": "Watermark opacity", "min": 2, "max": 30, "step": 1, "unit": "%", "default": 8 },
+    { "type": "range",  "id": "header_gap",        "label": "Gap below header", "min": 16, "max": 80, "step": 4, "unit": "px", "default": 40 },
+
+    { "type": "header", "content": "🃏 Card Style" },
+    { "type": "color",  "id": "card_bg",           "label": "Card background",  "default": "#111111" },
+    { "type": "color",  "id": "card_border_color",  "label": "Card border color","default": "#333333" },
+    { "type": "range",  "id": "card_border_width",  "label": "Card border width","min": 0, "max": 4, "step": 1, "unit": "px", "default": 1 },
+    { "type": "range",  "id": "card_radius",        "label": "Card border radius","min": 0, "max": 30, "step": 2, "unit": "px", "default": 16 },
+    { "type": "text",   "id": "card_shadow",        "label": "Card shadow (CSS)","default": "0 4px 20px rgba(0,0,0,0.4)" },
+    { "type": "range",  "id": "card_padding_v",     "label": "Card vertical padding",  "min": 12, "max": 60, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range",  "id": "card_padding_h",     "label": "Card horizontal padding", "min": 12, "max": 60, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range",  "id": "card_gap",           "label": "Gap between cards", "min": 8, "max": 48, "step": 2, "unit": "px", "default": 20 },
+
+    { "type": "header", "content": "🌟 Center Card" },
+    { "type": "range",  "id": "center_scale",          "label": "Center card scale",        "min": 100, "max": 125, "step": 1, "unit": "%", "default": 108 },
+    { "type": "color",  "id": "card_center_bg",         "label": "Center card background",   "default": "#1a1500" },
+    { "type": "color",  "id": "card_center_border_color","label": "Center border color",      "default": "#f6df83" },
+    { "type": "range",  "id": "card_center_border_width","label": "Center border width",      "min": 0, "max": 4, "step": 1, "unit": "px", "default": 1 },
+    { "type": "text",   "id": "card_center_shadow",      "label": "Center card shadow (CSS)", "default": "0 0 36px 6px rgba(246,223,131,0.35), 0 8px 40px rgba(0,0,0,0.7)" },
+    { "type": "range",  "id": "center_review_size",      "label": "Center text size",         "min": 12, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "select", "id": "center_review_weight",    "label": "Center text weight",       "default": "600", "options": [{"value":"400","label":"Regular"},{"value":"600","label":"Semibold"},{"value":"700","label":"Bold"}] },
+    { "type": "color",  "id": "center_review_color",     "label": "Center text color",        "default": "#ffffff" },
+
+    { "type": "header", "content": "👥 Side Cards — Near (±1)" },
+    { "type": "range",  "id": "side_opacity", "label": "Near card opacity",  "min": 10, "max": 90, "step": 5, "unit": "%", "default": 55 },
+    { "type": "range",  "id": "side_blur",    "label": "Near card blur",     "min": 0,  "max": 8,  "step": 1, "unit": "px","default": 1 },
+    { "type": "range",  "id": "side_scale",   "label": "Near card scale",    "min": 80, "max": 102,"step": 1, "unit": "%", "default": 95 },
+
+    { "type": "header", "content": "👥 Side Cards — Far (±2)" },
+    { "type": "range",  "id": "side2_opacity","label": "Far card opacity",   "min": 5,  "max": 70, "step": 5, "unit": "%", "default": 25 },
+    { "type": "range",  "id": "side2_blur",   "label": "Far card blur",      "min": 0,  "max": 10, "step": 1, "unit": "px","default": 2 },
+    { "type": "range",  "id": "side2_scale",  "label": "Far card scale",     "min": 70, "max": 100,"step": 1, "unit": "%", "default": 88 },
+
+    { "type": "header", "content": "🖼️ Hero Image (per card)" },
+    { "type": "text",   "id": "hero_aspect", "label": "Hero image aspect ratio (e.g. 16/9 or 4/3)", "default": "4/3" },
+    { "type": "range",  "id": "hero_gap",    "label": "Gap below hero image", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "👤 Author" },
+    { "type": "range",  "id": "avatar_size",           "label": "Avatar size",          "min": 32, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "color",  "id": "avatar_border_color",    "label": "Avatar border color",  "default": "#f6df83" },
+    { "type": "color",  "id": "avatar_placeholder_bg",  "label": "Avatar placeholder bg","default": "#222222" },
+    { "type": "range",  "id": "name_size",              "label": "Name font size",       "min": 12, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "select", "id": "name_weight",            "label": "Name font weight",     "default": "700", "options": [{"value":"400","label":"Regular"},{"value":"600","label":"Semibold"},{"value":"700","label":"Bold"}] },
+    { "type": "color",  "id": "name_color",             "label": "Name color",           "default": "#f6df83" },
+    { "type": "range",  "id": "role_size",              "label": "Role font size",       "min": 10, "max": 18, "step": 1, "unit": "px", "default": 13 },
+    { "type": "color",  "id": "role_color",             "label": "Role color",           "default": "#999999" },
+    { "type": "range",  "id": "author_gap",             "label": "Author row bottom gap","min": 4, "max": 24, "step": 2, "unit": "px", "default": 12 },
+
+    { "type": "header", "content": "⭐ Stars" },
+    { "type": "checkbox","id": "show_stars",      "label": "Show star rating",    "default": true },
+    { "type": "range",  "id": "star_size",        "label": "Star size",           "min": 12, "max": 28, "step": 2, "unit": "px", "default": 18 },
+    { "type": "color",  "id": "star_color",       "label": "Filled star color",   "default": "#f6df83" },
+    { "type": "color",  "id": "star_empty_color", "label": "Empty star color",    "default": "#333333" },
+    { "type": "range",  "id": "stars_gap",        "label": "Stars bottom gap",    "min": 4, "max": 20, "step": 2, "unit": "px", "default": 10 },
+
+    { "type": "header", "content": "💬 Review Text" },
+    { "type": "range",  "id": "review_size",        "label": "Review font size",   "min": 12, "max": 22, "step": 1, "unit": "px", "default": 14 },
+    { "type": "color",  "id": "review_color",       "label": "Review text color",  "default": "#aaaaaa" },
+    { "type": "range",  "id": "review_line_height", "label": "Review line height", "min": 1, "max": 2, "step": 0.1, "default": 1.7 },
+
+    { "type": "header", "content": "❝ Quote Icon" },
+    { "type": "checkbox","id": "show_quote_icon","label": "Show quote icon",      "default": true },
+    { "type": "range",  "id": "quote_size",      "label": "Quote icon size",      "min": 40, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "color",  "id": "quote_color",     "label": "Quote icon color",     "default": "#f6df83" },
+    { "type": "range",  "id": "quote_top",       "label": "Quote top offset",     "min": 4, "max": 40, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range",  "id": "quote_right",     "label": "Quote right offset",   "min": 4, "max": 40, "step": 2, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "◀ ▶ Arrows" },
+    { "type": "checkbox","id": "show_arrows",        "label": "Show navigation arrows","default": true },
+    { "type": "range",  "id": "arrow_size",          "label": "Arrow button size",     "min": 32, "max": 64, "step": 4, "unit": "px", "default": 44 },
+    { "type": "range",  "id": "arrow_margin",        "label": "Arrow margin",           "min": 0, "max": 24, "step": 2, "unit": "px", "default": 8 },
+    { "type": "color",  "id": "arrow_bg",            "label": "Arrow background",       "default": "#1a1a1a" },
+    { "type": "color",  "id": "arrow_border_color",  "label": "Arrow border color",     "default": "#f6df83" },
+    { "type": "color",  "id": "arrow_color",         "label": "Arrow icon color",       "default": "#f6df83" },
+    { "type": "color",  "id": "arrow_hover_bg",      "label": "Arrow hover background", "default": "#f6df83" },
+    { "type": "color",  "id": "arrow_hover_color",   "label": "Arrow hover icon color", "default": "#000000" },
+
+    { "type": "header", "content": "⚫ Dots" },
+    { "type": "checkbox","id": "show_dots",       "label": "Show dots",         "default": true },
+    { "type": "range",  "id": "dot_size",         "label": "Dot size",          "min": 6, "max": 18, "step": 2, "unit": "px", "default": 10 },
+    { "type": "color",  "id": "dot_color",        "label": "Dot color",         "default": "#f6df83" },
+    { "type": "color",  "id": "dot_active_color", "label": "Active dot color",  "default": "#f6df83" },
+    { "type": "range",  "id": "dots_margin_top",  "label": "Dots top margin",   "min": 12, "max": 48, "step": 4, "unit": "px", "default": 28 },
+
+    { "type": "header", "content": "▶ Autoplay" },
+    { "type": "checkbox","id": "autoplay",       "label": "Enable autoplay",       "default": true },
+    { "type": "range",  "id": "autoplay_speed", "label": "Autoplay speed (ms)",    "min": 1000, "max": 8000, "step": 500, "default": 3500 },
+    { "type": "range",  "id": "transition_speed","label": "Transition speed (ms)", "min": 200,  "max": 1000, "step": 50,  "default": 500 },
+
+    { "type": "header", "content": "📱 Tablet Settings" },
+    { "type": "range",   "id": "tablet_breakpoint",   "label": "Tablet breakpoint (px)",    "min": 768, "max": 1200, "step": 8, "default": 1024 },
+    { "type": "range",   "id": "tablet_center_scale", "label": "Tablet center card scale",  "min": 100, "max": 120,  "step": 1, "unit": "%", "default": 106 },
+    { "type": "range",   "id": "tablet_side_scale",   "label": "Tablet side card scale",    "min": 80,  "max": 102,  "step": 1, "unit": "%", "default": 94 },
+    { "type": "range",   "id": "tablet_side_blur",    "label": "Tablet side card blur",     "min": 0,   "max": 8,    "step": 1, "unit": "px","default": 1 },
+    { "type": "checkbox","id": "hide_arrows_tablet",  "label": "Hide arrows on tablet",     "default": false },
+
+    { "type": "header", "content": "📲 Mobile Settings" },
+    { "type": "range",  "id": "mobile_padding_v",         "label": "Mobile vertical padding",     "min": 16, "max": 80,  "step": 4, "unit": "px",  "default": 48 },
+    { "type": "range",  "id": "mobile_padding_h",         "label": "Mobile horizontal padding",   "min": 0,  "max": 32,  "step": 4, "unit": "px",  "default": 16 },
+    { "type": "range",  "id": "mobile_card_width",        "label": "Mobile card width (% of wrap)","min": 60, "max": 95,  "step": 1, "unit": "%",   "default": 80 },
+    { "type": "range",  "id": "mobile_center_scale",      "label": "Mobile center card scale",    "min": 100, "max": 115, "step": 1, "unit": "%",   "default": 105 },
+    { "type": "range",  "id": "mobile_side_scale",        "label": "Mobile side card scale",      "min": 75,  "max": 100, "step": 1, "unit": "%",   "default": 90 },
+    { "type": "range",  "id": "mobile_side_blur",         "label": "Mobile side card blur",       "min": 0,   "max": 8,   "step": 1, "unit": "px",  "default": 1 },
+    { "type": "range",  "id": "mobile_heading_size",      "label": "Mobile heading font size",    "min": 20,  "max": 52,  "step": 2, "unit": "px",  "default": 32 },
+    { "type": "range",  "id": "mobile_eyebrow_size",      "label": "Mobile eyebrow font size",    "min": 10,  "max": 18,  "step": 1, "unit": "px",  "default": 13 },
+    { "type": "range",  "id": "mobile_review_size",       "label": "Mobile review font size",     "min": 11,  "max": 18,  "step": 1, "unit": "px",  "default": 13 },
+    { "type": "range",  "id": "mobile_center_review_size","label": "Mobile center review size",   "min": 12,  "max": 20,  "step": 1, "unit": "px",  "default": 14 },
+    { "type": "range",  "id": "mobile_avatar_size",       "label": "Mobile avatar size",          "min": 28,  "max": 60,  "step": 4, "unit": "px",  "default": 40 },
+    { "type": "range",  "id": "mobile_name_size",         "label": "Mobile name font size",       "min": 12,  "max": 20,  "step": 1, "unit": "px",  "default": 14 }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "image_picker", "id": "hero_image",    "label": "Hero / product image (optional)" },
+        { "type": "text",         "id": "hero_image_alt","label": "Hero image alt text" },
+        { "type": "image_picker", "id": "avatar",        "label": "Avatar image" },
+        { "type": "text",         "id": "name",          "label": "Customer name",   "default": "John Doe" },
+        { "type": "text",         "id": "role",          "label": "Role / Title",    "default": "Verified Buyer" },
+        { "type": "range",        "id": "rating",        "label": "Star rating",     "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea",     "id": "review",        "label": "Review text",     "default": "Absolutely love this product! The quality is outstanding and it arrived faster than expected." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Carousel",
+      "blocks": [
+        { "type": "testimonial", "settings": { "name": "Emily R.",  "role": "Verified Buyer",  "rating": 5, "review": "Absolutely love this product! The quality is outstanding and it arrived faster than expected. Highly recommend!" } },
+        { "type": "testimonial", "settings": { "name": "James K.",  "role": "Loyal Customer",  "rating": 5, "review": "Best purchase I've made this year. The material feels premium and the fit is perfect. Will definitely buy again." } },
+        { "type": "testimonial", "settings": { "name": "Priya L.",  "role": "Fashion Blogger", "rating": 4, "review": "Great style and very comfortable. Shipping was quick and packaging was beautiful. Super happy with my order!" } },
+        { "type": "testimonial", "settings": { "name": "Carlos R.", "role": "Verified Buyer",  "rating": 5, "review": "Exceeded all my expectations. The craftsmanship is top-notch and customer service was incredibly helpful." } },
+        { "type": "testimonial", "settings": { "name": "Maria J.",  "role": "Verified Buyer",  "rating": 5, "review": "Incredible quality and fast delivery. The packaging was beautiful and the product exceeded every expectation." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
